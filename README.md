@@ -5,7 +5,7 @@ Used Loan data from kaggle to predict the eligibility loan, using the DecisionTr
 
 ### Data Source
 
-Loan Data: [Download here]("/kaggle/input/eligibility-prediction-for-loan/Loan_Data.csv")
+Loan Data: [View on Kaggle]("https://www.kaggle.com/code/experience08/loan-prediction")
 
 ### Tools
 - Kaggle
