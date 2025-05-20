@@ -1,86 +1,84 @@
-# 🏦 Loan Prediction Model
+# Loan Prediction model
 
-This project is a machine learning model that predicts whether a loan application will be approved or not, based on applicant information. It is built using Python and scikit-learn and is intended as a demonstration of binary classification for financial data.
+## Table of contents
 
----
+- [Aim](#aim)
+- [Data source](#data-source)
+- [Data preparation](#data-preparation)
+- [Model Training](#model-training)
+- [Save the  model](#save-the-model)
+- [Test the  model](#test-the-model)
+- [Results](#results)
+- [Recommandations](#recommandations)
 
-## 📂 Project Structure
-
-loan-prediction/
-├── data/
-│ └── loan_data.csv
-├── notebooks/
-│ └── data_preprocessing.ipynb
-│ └── model_training.ipynb
-├── models/
-│ └── loan_model.pkl
-├── src/
-│ └── utils.py
-│ └── predict.py
-├── README.md
-└── requirements.txt
-
+  ---
+### Project Overview
+This project is a machine learning model that predicts whether a loan application will be approved or not, based on different features. It is built using DecisionTreeRegressor algorithm.
 
 ---
+### Data Source
 
-## 📊 Problem Statement
-
-Banks and financial institutions receive numerous loan applications daily. Predicting loan eligibility based on applicant details can improve decision-making and reduce defaults.
-
-**Goal:** Build a model that classifies loan applications as `Approved` or `Rejected`.
-
+Loan Data: [Loan Approval Prediction Model](https://www.kaggle.com/code/experience08/loan-prediction)
 ---
 
-## 🧪 Dataset Overview
+### Tools
+- Kaggle
+- Python
+- scikit-learn
 
-Example features include:
+### Data preparation
+1. Data Cleaning.
+2.  Exploratory Data Analysis.
+3. Feature Engineering.
+4. Model Training.
+5. Evaluation.
+6. Model Saving and Inference.
 
-| Feature               | Description                            |
-|-----------------------|----------------------------------------|
-| Gender                | Male / Female                          |
-| Married               | Applicant married? (Yes/No)            |
-| Dependents            | Number of dependents                   |
-| Education             | Graduate / Not Graduate                |
-| Self_Employed         | Self-employed? (Yes/No)                |
-| ApplicantIncome       | Income of the applicant                |
-| CoapplicantIncome     | Income of the coapplicant              |
-| LoanAmount            | Loan amount requested                  |
-| Loan_Amount_Term      | Term of loan (in months)               |
-| Credit_History        | Credit history meets guidelines (1/0)  |
-| Property_Area         | Urban / Semiurban / Rural              |
-| Loan_Status           | Target: Y (Approved), N (Rejected)     |
+### Model training
+The model was trained the Logistic Regression which is suitable for binary and multi-class classification problems.
 
----
+```
+ Loan_Prediction_Model = LogisticRegression()
+```
 
-## 🛠️ Model Workflow
+### Save the model
+save and load the model for future use
 
-1. **Data Cleaning**  
-   Handle missing values, encode categorical variables.
+```
 
-2. **Exploratory Data Analysis**  
-   Understand distributions, correlations, and outliers.
+```
 
-3. **Feature Engineering**  
-   Transform and scale numerical variables.
+###  Test the Model
 
-4. **Model Training**  
-   Use classifiers like Logistic Regression, Random Forest, or XGBoost.
+use the loded model and new data to make a prediction
 
-5. **Evaluation**  
-   Assess with accuracy, precision, recall, F1-score, ROC-AUC.
+```
+#Testing using new data
+new_data=(24,2,20,0,7500,0,2,0,2,0,0,0,1,1,1,90,0,0,0,0,2)
 
-6. **Model Saving and Inference**  
-   Save trained model using `joblib` and create a prediction script.
+# changing the input_data to numpy array
+new_data_as_numpy_array = np.asarray(new_data)
 
----
+# reshape the array as we are predicting for one instance
+new_data_reshaped = new_data_as_numpy_array.reshape(1,-1)
 
-## 🚀 Getting Started
+prediction = loaded_model.predict(new_data_reshaped)
+print(prediction)
 
-### 1. Clone the Repository
+if (prediction[0] == 0):
+  print('The employee will stay in the company')
+else:
+  print('The employee will leave the company')
+```
 
-```bash
-git clone https://github.com/your-username/loan-prediction.git
-cd loan-prediction
+### Results
+
+An accuracy of 69.68% was achived using the trained model
+
+### Recommandations
+
+To improve the model 
+- Tune hyperparameters
 
 
 
