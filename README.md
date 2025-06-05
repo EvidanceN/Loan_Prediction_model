@@ -8,7 +8,7 @@
 - [Model Training](#model-training)
 - [Save the  model](#save-the-model)
 - [Test the  model](#test-the-model)
-- [Results](#results)
+- [Performance Metrics](#performance-metrics)
 - [Recommandations](#recommandations)
 
   ---
@@ -22,30 +22,32 @@ Loan Data: [Loan Approval Prediction Model](https://www.kaggle.com/code/experien
 ---
 
 ### Tools
-- Kaggle
-- Python
-- scikit-learn
+- Python 3
+- Pandas, NumPy
+- Scikit-learn
+- imbalanced-learn (for SMOTE)
+- Matplotlib / Seaborn (for visualizations)
 
 ### Data preparation
 1. Data Cleaning.
-2.  Exploratory Data Analysis.
-3. Feature Engineering.
-4. Model Training.
-5. Evaluation.
-6. Model Saving and Inference.
+2. Exploratory Data Analysis.
+3. Model Training.
+4. Evaluation.
+5. Model Saving.
 
 ### Model training
-The model was trained the Logistic Regression which is suitable for binary and multi-class classification problems.
+The model was trained using Logistic Regression which is suitable for binary and multi-class classification problems.
 
 ```
- Loan_Prediction_Model = LogisticRegression()
+Loan_Prediction_Model = RandomForestClassifier(n_estimators=100, random_state=42)
 ```
 
 ### Save the model
 save and load the model for future use
 
 ```
-
+import joblib
+joblib.dump(Loan_Prediction_Model, "loan_approval_model.pkl")
 ```
 
 ###  Test the Model
@@ -71,14 +73,17 @@ else:
   print('The employee will leave the company')
 ```
 
-### Results
+### Performance Metrics
+1. Accuracy: ~0.84
+2. ROC-AUC Score: ~0.88 (may vary depending on data split)
+3. Classification report includes precision, recall, and F1-score
 
-An accuracy of 69.68% was achived using the trained model
 
 ### Recommandations
 
 To improve the model 
 - Tune hyperparameters
+- Perform feature engeneering
 
 
 
