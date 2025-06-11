@@ -1,4 +1,4 @@
-# Loan Prediction model
+# Loan Approval Prediction Model
 
 ## Table of contents
 
@@ -18,7 +18,7 @@ This project is a machine learning model that predicts whether a loan applicatio
 ---
 ### Data Source
 
-Loan Data: [Loan Approval Prediction Model](https://www.kaggle.com/code/experience08/loan-prediction)
+Loan Data: [Loan Approval Prediction]([(https://www.kaggle.com/code/experience08/loan-prediction](https://www.kaggle.com/code/experience08/loan-prediction/input))
 ---
 
 ### Tools
@@ -27,6 +27,21 @@ Loan Data: [Loan Approval Prediction Model](https://www.kaggle.com/code/experien
 - Scikit-learn
 - imbalanced-learn (for SMOTE)
 - Matplotlib / Seaborn (for visualizations)
+- joblib
+
+##  Setup Instructions
+
+1. Clone the repository
+   
+   ```bash
+   git clone https://github.com/yourusername/Loan-Approval-Prediction.git
+   cd loan-approval-prediction
+   ```
+2. Install Dependencies
+   
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 ### Data preparation
 1. Data Cleaning.
@@ -36,7 +51,7 @@ Loan Data: [Loan Approval Prediction Model](https://www.kaggle.com/code/experien
 5. Model Saving.
 
 ### Model training
-The model was trained using Logistic Regression which is suitable for binary and multi-class classification problems.
+The model was trained using a RandomForestClassifier.
 
 ```
 Loan_Prediction_Model = RandomForestClassifier(n_estimators=100, random_state=42)
@@ -75,7 +90,7 @@ else:
 
 ### Performance Metrics
 1. Accuracy: ~0.84
-2. ROC-AUC Score: ~0.88 (may vary depending on data split)
+2. ROC-AUC Score: ~0.88 
 3. Classification report includes precision, recall, and F1-score
 
 
